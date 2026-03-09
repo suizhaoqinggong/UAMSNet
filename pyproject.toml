@@ -1,0 +1,28 @@
+[project]
+name = "uamsnet-segmentation"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib",
+    "setuptools<82.0.0",
+    "tensorboard",
+    "torch",
+    "torchmetrics",
+    "numpy",
+    "scikit-image",
+    "opencv-python",
+    "nibabel",
+    "pandas",
+    "tqdm",
+    "einops",
+]
+
+[project.scripts]
+uamsnet = "framework.cli.main:main"
+
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/framework", "src/models", "src/data_adapters", "src/tasks"]

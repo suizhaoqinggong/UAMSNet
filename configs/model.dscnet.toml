@@ -1,0 +1,12 @@
+[model]
+name = "dscnet"
+
+[model.params]
+n_channels = 3
+n_classes = 17
+kernel_size = 9
+extend_scope = 1.0
+if_offset = true
+device = "auto"
+number = 32
+dim = 1

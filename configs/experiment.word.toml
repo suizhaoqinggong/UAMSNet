@@ -1,0 +1,41 @@
+[experiment]
+name = "word-organ-segmentation"
+seed = 42
+class_names = ["background", "liver", "spleen", "left_kidney", "right_kidney", "stomach", "gallbladder", "esophagus", "pancreas", "duodenum", "colon", "intestine", "adrenal", "rectum", "bladder", "prostate", "left_ureter", "right_ureter"]
+
+[data]
+adapter = "word"
+processed_root = "data/processed/word"
+batch_size = 4
+num_workers = 4
+
+[task]
+name = "segmentation"
+num_classes = 17
+include_background = false
+dice_weight = 0.5
+bce_weight = 0.5
+
+[metrics]
+[metrics.params.dice]
+num_classes = 17
+include_background = false
+
+[metrics.params.per_class_dice]
+num_classes = 17
+include_background = false
+
+[optimizer]
+name = "adam"
+lr = 0.00001
+weight_decay = 1e-8
+
+[trainer]
+epochs = 100
+patience = 20
+device = "auto"
+amp = true
+
+[checkpoint]
+monitor = "avg_dice"
+mode = "max"

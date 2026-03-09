@@ -1,0 +1,7 @@
+[model]
+name = "unet"
+
+[model.params]
+n_channels = 3
+n_classes = 17
+bilinear = true

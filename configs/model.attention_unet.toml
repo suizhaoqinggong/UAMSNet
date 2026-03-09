@@ -1,0 +1,6 @@
+[model]
+name = "attention_unet"
+
+[model.params]
+n_channels = 1
+n_classes = 17
